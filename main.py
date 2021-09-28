@@ -51,7 +51,7 @@ def check_human_understand(password):
     return answer
 
 
-def f_generation_password(conditions, len_password):
+def generation_password(conditions, len_password):
     global num_tests, num_conditions, necessarily
 
     list_symbol = []
@@ -118,11 +118,12 @@ def main():
         len_password = random.randint(min_len_password, max_len_password)
         necessarily = ['*', '&', '@']
 
+        print(f"###Тест {i + 1}")
         print(f"длина пароля = {len_password}")
         for i in range(num_conditions + 1):
             print(tasks[i][(val >> i) & 1])
         for i in range(10):
-            print(f_generation_password(val, len_password))
+            print(generation_password(val, len_password))
         print('-' * 16)
         print()
 
